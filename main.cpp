@@ -10,15 +10,18 @@
 using namespace cv;
 using namespace std;
 
+
 int main() {
-	char imagePath[30] = "Data/1/frame1.jpg";
+	char imagePath[30] = "/home/enrico/Pictures/sky.jpg";
 	Mat1b image;
-	image = imread(imagePath, CV_LOAD_IMAGE_GRAYSCALE);
+	image = imread(imagePath, 1);
 
-	Canny(image, image, 90, 90 * 3, 3);
-
-	namedWindow("Display window", WINDOW_AUTOSIZE);
-	imshow("Display window", image);
+	if (!image.data) {
+		cout << "No image data" << endl;
+		return -1;
+	}
+	namedWindow("Display Image", WINDOW_AUTOSIZE);
+	imshow("Display Image", image);
 
 	waitKey(0);
 
