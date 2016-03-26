@@ -9,4 +9,7 @@
 #define MAX_ROW     640
 #define MAX_COLUMN  480
 
+typedef float CarPlanePoint[2];
+typedef unsigned int Pixel[2];
+
 #endif //LINEFOLLOWER_COMMON_H

@@ -6,7 +6,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include "Pixel.h"
+#include "MoveFirstSelection.h"
 
 
 using namespace cv;
@@ -33,9 +33,9 @@ int main() {
 	namedWindow("canny filter", WINDOW_AUTOSIZE);
 	imshow("canny filter", image);
 
-	Pixel start(432, 420);
-
-
+	Pixel start;
+	start[0] = 432;
+	start[1] = 420;
 
 
 	waitKey(0);

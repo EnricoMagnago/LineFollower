@@ -5,27 +5,28 @@
 #ifndef LINEFOLLOWER_MOVEFIRSTSELECTION_H
 #define LINEFOLLOWER_MOVEFIRSTSELECTION_H
 
-#include "Pixel.h"
+#include "Common.h"
 
 /*
  * This class is generated to move the selection on the edges of the immage.
- * The function getNextAera give back the corners of the selection
+ * The function getNextArea give back the corners of the selection
  */
 class MoveFirstSelection {
 	int dx;
 	int rightMove;
 	int leftMove;
 	const int selectionDimension;
-	const int resize_m;
-	const int resize_q;
+	const float resize_m;
+	const float resize_q;
 	const int maxRow;
 	const int maxColumn;
+	Pixel pStart;
 
-	// Default Initializator
+	// Init to default values.
 	MoveFirstSelection();
 
-	// Inizializator with a start point
-	MoveFirstSelection(Pixel pStart);
+	// Set the starting point.
+	void setStartPoint(Pixel _pStart);
 
 
 };
