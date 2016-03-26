@@ -13,19 +13,26 @@ using namespace std;
 class Camera {
 private:
 	struct RotoTraslation {
-		const float R[3][3];
-		const float T[3];
+		float R[3][3];
+		float T[3];
 	};
-	const float intrinsicMatrix[3][3];
-	const float rotationMatrix[3][3];
-	const float tralationVector[3];
-	const float focalLengthVector[2];
-	const float covarianceMatrix[2][2];
-	const float mapx[MAX_ROW][MAX_COLUMN];
-	const RotoTraslation car2img;
-	const RotoTraslation img2car;
-	const float resize_m;
-	const float resize_q;
+
+	struct MoveSelectionParameters {
+		int dx;
+		int rightMove;
+		int leftMove;
+		Pixel pStart;
+		int selectionDimension;
+	};
+
+	int maxRow;
+	float variance[2];
+	float mapx[MAX_ROW][MAX_COLUMN];
+	RotoTraslation car2img;
+	RotoTraslation img2car;
+	float resize_m;
+	float resize_q;
+	MoveSelectionParameters moveSelectionParameters;
 
 public:
 	//loads configuration from the specified file.
